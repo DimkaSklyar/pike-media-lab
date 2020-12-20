@@ -1,32 +1,54 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <header class="header">
+      <h1 class="page-title">#movienow</h1>
+    </header>
+    <div class="container">
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
 <style lang="scss">
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background: #363232;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 40px 0;
+  min-height: calc(100vh - 98px);
+}
+.header {
+  background: rgba(250, 40, 40, 0.98);
+}
+.page-title {
+  font-size: 48px;
+  line-height: 48px;
+  text-align: center;
+  letter-spacing: 0.21em;
+  text-transform: uppercase;
+  color: #000;
+  padding: 35px 0 15px;
+}
+.navigation {
+  border-bottom: 1px solid #c4c4c4;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+.nav {
+  display: flex;
 }
 </style>
