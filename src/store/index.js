@@ -32,20 +32,28 @@ export default new Vuex.Store({
   },
   actions: {
     async getAllMovies({ commit }) {
-      const { data } = await axios.get(
-        "https://floating-sierra-20135.herokuapp.com/api/movies"
-      );
-      const movies = await data.data;
+      try {
+        const { data } = await axios.get(
+          "https://floating-sierra-20135.herokuapp.com/api/movies"
+        );
+        const movies = await data.data;
 
-      commit("setListMovies", movies);
+        commit("setListMovies", movies);
+      } catch (error) {
+        console.error(error);
+      }
     },
     async getSingleMovie({ commit }, id) {
-      const { data } = await axios.get(
-        `https://floating-sierra-20135.herokuapp.com/api/movie/${id}`
-      );
-      const movie = await data.data;
+      try {
+        const { data } = await axios.get(
+          `https://floating-sierra-20135.herokuapp.com/api/movie/${id}`
+        );
+        const movie = await data.data;
 
-      commit("setSingleMovie", movie);
+        commit("setSingleMovie", movie);
+      } catch (error) {
+        console.error(error);
+      }
     },
     clearListMovie({ commit }) {
       commit("emptyListMovies");
